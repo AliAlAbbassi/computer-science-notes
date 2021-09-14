@@ -1,4 +1,5 @@
 # Computer Science Notes
 
-List
+### List
 - [[intro]] to Algorithms
+- Computer Networks: [[index]] 

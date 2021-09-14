@@ -143,3 +143,90 @@ A proof consists of:
 - there is a chain of reasoning which takes you from these assumptions to the statement you are trying to prove
 - conclusion with a little square ( ) or QED
 	
+#### #Takehomelesson 
+The heart of any algorithm is an idea. If your idea is not clearly revealed when you express an algorithm, then you are using too low-level a notation to describe it.
+
+### Combinatorial Objects
+• Permutations – which are arrangements, or orderings, of items. For example, {1, 4, 3, 2} and {4, 3, 2, 1} are two distinct permutations of the same set of four integers. We have already seen permutations in the robot optimization problem, and in sorting. Permutations are likely the object in question whenever your problem seeks an “arrangement,” “tour,” “ordering,” or “sequence.”
+
+• Subsets – which represent selections from a set of items. For example, {1, 3, 4} and {2} are two distinct subsets of the first four integers. Order does not matter in subsets the way it does with permutations, so the subsets {1, 3, 4} and {4, 3, 1} would be considered identical. We saw subsets arise in the movie scheduling problem. Subsets are likely the object in question whenever your problem seeks a “cluster,” “collection,” “committee,” “group,” “packaging,” or “selection.”
+
+• Trees – which represent hierarchical relationships between items. Figure 1.8(a) shows part of the family tree of the Skiena clan. Trees are likely the object in question whenever your problem seeks a “hierarchy,” “dominance relationship,” “ancestor/descendant relationship,” or “taxonomy.” 
+
+• Graphs – which represent relationships between arbitrary pairs of objects. Figure 1.8(b) models a network of roads as a graph, where the vertices are cities and the edges are roads connecting pairs of cities. Graphs are likely the object in question whenever you seek a “network,” “circuit,” “web,” or “relationship.” 
+
+• Points – which represent locations in some geometric space. For example, the locations of McDonald’s restaurants can be described by points on a map/plane. Points are likely the object in question whenever your problems work on “sites,” “positions,” “data records,” or “locations.” 
+
+• Polygons – which represent regions in some geometric spaces. For example, the borders of a country can be described by a polygon on a map/plane. Polygons and polyhedra are likely the object in question whenever you are working on “shapes,” “regions,” “configurations,” or “boundaries.” 
+
+• Strings – which represent sequences of characters or patterns. For example, the names of students in a class can be represented by strings. Strings are likely the object in question whenever you are dealing with “text,” “characters,” “patterns,” or “labels.”
+
+![[Pasted image 20210725231658.png]]
+
+#Takehomelesson : Modeling your application in terms of well-defined structures and algorithms is the most important single step towards a solution.
+
+### Recursive Objects
+• Permutations – Delete the first element of a permutation of {1,...,n} things and you get a permutation of the remaining n − 1 things. Permutations are recursive objects.
+
+• Subsets – Every subset of the elements {1,...,n} contains a subset of {1,...,n − 1} made visible by deleting element n if it is present. Subsets are recursive objects. 
+
+• Trees – Delete the root of a tree and what do you get? A collection of smaller trees. Delete any leaf of a tree and what do you get? A slightly smaller tree. Trees are recursive objects. 
+
+• Graphs – Delete any vertex from a graph, and you get a smaller graph. Now divide the vertices of a graph into two groups, left and right. Cut through all edges which span from left to right, and what do you get? Two smaller graphs, and a bunch of broken edges. Graphs are recursive objects. 
+
+• Points – Take a cloud of points, and separate them into two groups by drawing a line. Now you have two smaller clouds of points. Point sets are recursive objects. 
+
+• Polygons – Inserting any internal chord between two nonadjacent vertices of a simple polygon on n vertices cuts it into two smaller polygons. Polygons are recursive objects. 
+
+• Strings – Delete the first character from a string, and what do you get? A shorter string. Strings are recursive objects.
+
+## Exercises
+
+### Finding counterexamples
+
+1.1) Show that a + b can be less than min(a, b).
+answ: (-1) + (-2) = -3 < -2
+
+1.2) Show that a × b can be less than min(a, b).
+anws: (-1) x 2 = -2 < -1
+
+1.3) Design/draw a road network with two points a and b such that the fastest route between a and b is not the shortest route.
+ans: 
+a ----------- c ----------- b
+   \                         			   /
+    \--------- d ---------- /
+	
+If the distance from a to b going through d is less than the distance from _a_ to _b_ going through _c_ but there is a busy traffic intersection at _d_ with a stop sign that is always backed up, then the route from _a_ to _b_ through _c_ is faster, but the route through _d_ is shorter.
+ 
+ For example,
+
+dist(a,c)=10 miles
+
+dist(c,b)=5 miles
+
+So the distance from _a_ to _b_ through _c_ is 15 miles. Assuming you drive 30 miles per hour, the time to travel this would be 30 minutes
+
+
+dist(a,d)=5 miles
+
+dist(c,b)=5 miles
+
+So the distance from _a_ to _b_ through _d_ is 10 miles. Assuming you drive 30 miles per hour, the time to travel this would be 20 minutes, but due to the busy intersection at _d_, you are delayed 15 minutes, the total time would be 35 minutes.
+
+Another possible solution: You have a longer route with a higher speed and a shorter route with a lower speed. By choosing the numbers appropriately, you can make the longer route be the winner. The speed may be due to law, or due to traffic jam, or because of pot holes on the road :-)
+
+Suppose road of length l1 has speed limit s1 and another road of length l2 has speed limit l2. The shorter route is determined by comparing l1 with l2. The faster route is determined by comparing l1/s1 with l2/s2. With positive numbers, if l1 > l2 but l1 < l2 * s1 / s2, then the faster route differs from the shorter route.
+
+1.4) Design/draw a road network with two points a and b such that the shortest route between a and b is not the route with the fewest turns.
+
+anws: 
+
+the road from a to b, through c,  is shorter in distance than the road from a to b, through d but road through c has way more turns
+
+1-5. [4] The knapsack problem is as follows: given a set of integers S = {s1, s2,...,sn}, and a target number T, find a subset of S which adds up exactly to T. For example, there exists a subset within S = {1, 2, 5, 9, 10} that adds up to T = 22 but not T = 23. Find counterexamples to each of the following algorithms for the knapsack problem. That is, giving an S and T such that the subset is selected using the algorithm does not leave the knapsack completely full, even though such a solution exists.
+
+(a) Put the elements of S in the knapsack in left to right order if they fit, i.e. the first-fit algorithm. 
+
+(b) Put the elements of S in the knapsack from smallest to largest, i.e. the best-fit algorithm. 
+
+(c) Put the elements of S in the knapsack from largest to smallest.
