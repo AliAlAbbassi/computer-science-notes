@@ -59,6 +59,7 @@ This is very useful in simplifying expressions, since it implies that n3 + n2 + 
 
 ##### Selection Sort
 code:   
+```
 selection_sort(int s[], int n) { 
 		int i,j; /* counters */ 
 		int min; /* index of minimum */ 
@@ -69,7 +70,7 @@ selection_sort(int s[], int n) {
 				swap(&s[i], &s[min]);
 				}
 		}
-
+```
 The outer loop goes around n times. The nested inner loop goes around n−i−1 times, where i is the index of the outer loop. The exact number of times the if statement is executed is given by: 
 S(n) = n !−1 i=0 n !−1 j=i+1 1 = n !−1 i=0 n − i − 1
 
