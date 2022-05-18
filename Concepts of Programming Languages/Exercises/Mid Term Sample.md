@@ -1,0 +1,15 @@
+### MCQ
+- D
+- D
+- A
+- C
+- false. Actually C executes faster than java cz java aims for reliability
+- false, it's java
+- true
+- cz the scope of the variables a, b, and c are within that of the function foo. So, when foo finishes execution, the variables a, b, and c gets deallocated automatically
+- a, b, c, d
+- a, b, c, d, e
+- a, b, c, d
+- a, b, c
+- Loc[arr[i, j]] = arr_address[0, 0] + (i * n + j) * element_size
+- Loc(A[6, 7]) = 3000 + ((6 * 20) + 7) * 4 = 3508

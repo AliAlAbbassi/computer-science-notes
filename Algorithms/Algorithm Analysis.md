@@ -15,7 +15,9 @@ The formal definitions associated with the Big Oh notation are as follows:
 
 • f(n) = O(g(n)) means c · g(n) is an upper bound on f(n). Thus there exists some constant c such that f(n) is always ≤ c · g(n), for large enough n (i.e. , n ≥ n0 for some constant n0). 
 
-• f(n) = Ω(g(n)) means c · g(n) is a lower bound on f(n). Thus there exists some constant c such that f(n) is always ≥ c · g(n), for all n ≥ n0. • f(n) = Θ(g(n)) means c1 · g(n) is an upper bound on f(n) and c2 · g(n) is a lower bound on f(n), for all n ≥ n0. Thus there exist constants c1 and c2 such that f(n) ≤ c1 ·g(n) and f(n) ≥ c2 ·g(n). This means that g(n) provides a nice, tight bound on f(n).
+• f(n) = Ω(g(n)) means c · g(n) is a lower bound on f(n). Thus there exists some constant c such that f(n) is always ≥ c · g(n), for all n ≥ n0. 
+
+• f(n) = Θ(g(n)) means c1 · g(n) is an upper bound on f(n) and c2 · g(n) is a lower bound on f(n), for all n ≥ n0. Thus there exist constants c1 and c2 such that f(n) ≤ c1 ·g(n) and f(n) ≥ c2 ·g(n). This means that g(n) provides a nice, tight bound on f(n).
 
 #Takehomelesson: The Big Oh notation and worst-case analysis are tools that greatly simplify our ability to compare the efficiency of algorithms.
 
@@ -97,7 +99,7 @@ Input: A text string t and a pattern string p.
 Output: Does t contain the pattern p as a substring, and if so where?
 
 Code:
-
+```
 	int findmatch(char *p, char *t) { 
 			int i,j; /* counters */ 
 			int m, n; /* string lengths */ 
@@ -111,6 +113,27 @@ Code:
 			}
 				return(-1);
 	   }
-	 
+``` 
 	 
 The worst-case running time of these two nested loops is the inner while loop goes around at most m times, and potentially far lass when the pattern match fails. The outer loops goes around at most n-m times. since no complete alignment is possible once we get too far to the right of ther text.
+
+### Matrix Multiplication
+Nested summations often arise in the analysis of algorithms with nested loops.
+
+Problem: Matrix Multiplication 
+- Input: Two matrices, A (of dimension x × y) and B (dimension y × z). 
+- Output: An x × z matrix C where C[i][j] is the dot product of the ith row of A and the jth column of B.
+
+```
+for (i=1; i<=x; i++) { 
+	for (j=1; j<=y; j++) { 
+		C[i][j] = 0; 
+		for (k=1; k<=z; k++) {
+			C[i][j] += A[i][k] * B[k][j];
+		}
+	}
+}
+```
+
+##### Analyzing the time complexity of this algo 
+![](https://cdn.discordapp.com/attachments/692511801887293495/896826051957768202/unknown.png)

@@ -70,3 +70,8 @@ The process between converting between bits and signals that represent them is c
 
 <u>Modulation</u> schemes send bits as signals
 <u>Multiplexing</u> schemes share a channel among users.
+
+##### Baseband Transmission
+The most straightforward form of digital modulation is to use a positive voltage to represent a 1 and a negative voltage to represent a 0. For an optical fiber, the presence of light might represent a 1 and the absence of light might represent a 0. This scheme is called NRZ (Non-Return-to-Zero). The odd name is for historical reasons, and simply means that the signal follows the data.
+###### Bandwidth Efficiency
+With NRZ, the signal may cycle between the positive and negative levels up to every 2 bits (in the case of alternating 1s and 0s). This means that we need a bandwidth of at least B/2 Hz when the bit rate is B bits/sec. This relation comes from the Nyquist rate [Eq. (2-2)]. It is a fundamental limit, so we cannot run NRZ faster without using more bandwidth. Bandwidth is often a limited resource, even for wired channels, Higher-frequency signals are increasingly attenuated, making them less useful, and higher-frequency signals also require faster electronics.
